@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# installs nginx and configures it on a remote server
-
+# Installs Nginx web server on the server
+#+ Nginx should be listening to port 80
+#+ When querying nginx at it's root using curl it
+#+	must return a page with a sting "Hello World!"
+#+ configures a new Ubuntu machine to respect above requirements
 apt-get -y update
 apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo service nginx restart
